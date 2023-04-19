@@ -22,11 +22,7 @@ install_files: >-
   squirrel.yaml
   rime_ice.schema.yaml
   rime_ice.dict.yaml
-  double_pinyin.schema.yaml
-  double_pinyin_mspy.schema.yaml
-  double_pinyin_flypy.schema.yaml
   symbols_v.yaml
-  symbols_caps_v.yaml
   liangfen.schema.yaml
   liangfen.dict.yaml
   melt_eng.schema.yaml
