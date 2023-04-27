@@ -1,5 +1,7 @@
 {
-  "prettier.useTabs": true,
-  "prettier.tabWidth": 2,
-  "editor.tabSize": 2
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 2,
+	"editor.tabSize": 2,
+	"editor.detectIndentation": true,
+	"editor.insertSpaces": false
 }
