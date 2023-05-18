@@ -10,7 +10,7 @@
 
 详细介绍：[Rime 配置：雾凇拼音](https://dvel.me/posts/rime-ice/)
 
-[常见问题](https://github.com/iDvel/rime-ice/issues/133)
+[常见问题](https://github.com/iDvel/rime-ice/issues/133)（小狼毫需要参考里面更新一下 librime）
 
 <br>
 
@@ -27,6 +27,7 @@
   - [以词定字](https://github.com/BlindingDark/rime-lua-select-character)
   - [长词优先](https://github.com/tumuyan/rime-melt/blob/master/lua/melt.lua)
   - [Unicode](https://github.com/shewer/librime-lua-script/blob/main/lua/component/unicode.lua)
+  - [数字、人民币大写](https://wb98.gitee.io/)
   - 所有标点符号直接上屏，/ 模式改为 v 模式，/ 直接上屏
   - 增加了许多拼音纠错
 - 简体字表、词库
