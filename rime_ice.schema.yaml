@@ -40,7 +40,6 @@ switches:
 engine:
   processors:
     - lua_processor@select_character # 以词定字
-    - lua_processor@cold_word_drop_processor # 词条隐藏、降频
     - ascii_composer
     - recognizer
     - key_binder
@@ -68,8 +67,6 @@ engine:
     - simplifier@emoji # Emoji
     - simplifier@traditionalize # 简繁切换
     - uniquifier # 去重
-    # - lua_filter@is_in_user_dict        # 为用户词典中（输入过）的内容结尾加上一个星号
-    - lua_filter@cold_word_drop_filter # 词条隐藏、降频
     - lua_filter@v_filter # v 模式 symbols 优先（否则是英文优先）
     - lua_filter@reduce_english_filter # 降低部分英语单词在候选项的位置
     - lua_filter@long_word_filter # 长词优先
@@ -97,7 +94,7 @@ reduce_english_filter:
   idx: 5
   # 要降低的单词，匹配的是输入码，即全小写。
   # prettier-ignore
-  words: [nav, rug, bus, ship, laos, bail, bam, bans, bib, bos, chic, chit, dab, dag, dal, dit, dub, dug, fab, gam, ger, gus, hem, hep, hud, kat, lam, lax, lex, lug, lux, moc, mos, mot, mum, nad, nay, nib, nip, pak, pap, pax, rig, rum, sac, sal, sax, sec, shin, sis, ska, slang, sus, tad, taj, tac, tic, yep, yum, fax, cain, key, mob, buy, dam, wap, went, yes, but, put, lag, buf, lip, aid, aim]
+  words: [nav, rug, bus, ship, laos, bail, bam, bans, bib, bos, chic, chit, dab, dag, dal, dit, dub, dug, fab, gam, ger, gus, hem, hep, hud, kat, lam, lax, lex, lug, lux, moc, mos, mot, mum, nad, nay, nib, nip, pak, pap, pax, rig, rum, sac, sal, sax, sec, shin, sis, ska, slang, sus, tad, taj, tac, tic, yep, yum, fax, cain, key, mob, buy, dam, wap, went, yes, but, put, lag, buf, lip, aid, aim, dig, dim, din, dip]
 
 # 引入八股文
 grammar:
@@ -198,25 +195,25 @@ speller:
     # - derive/^g/k/
     # - derive/^k/g/
     # 韵母
-    # - derive/ang/an/
-    # - derive/an/ang/
-    - derive/eng/en/
-    - derive/en/eng/
-    - derive/in/ing/
-    - derive/ing/in/
-    # - derive/ian/iang/
-    # - derive/iang/ian/
-    # - derive/uan/uang/
-    # - derive/uang/uan/
-    # - derive/ai/an/
-    # - derive/an/ai/
-    # - derive/ong/un/
-    # - derive/un/ong/
-    # - derive/ong/on/
-    # - derive/iong/un/
-    # - derive/un/iong/
-    # - derive/ong/eng/
-    # - derive/eng/ong/
+    # - derive/ang$/an/
+    # - derive/an$/ang/
+    # - derive/eng$/en/
+    # - derive/en$/eng/
+    # - derive/in$/ing/
+    # - derive/ing$/in/
+    # - derive/ian$/iang/
+    # - derive/iang$/ian/
+    # - derive/uan$/uang/
+    # - derive/uang$/uan/
+    # - derive/ai$/an/
+    # - derive/an$/ai/
+    # - derive/ong$/un/
+    # - derive/un$/ong/
+    # - derive/ong$/on/
+    # - derive/iong$/un/
+    # - derive/un$/iong/
+    # - derive/ong$/eng/
+    # - derive/eng$/ong/
     # 拼音音节
     # - derive/^fei$/hui/
     # - derive/^hui$/fei/
