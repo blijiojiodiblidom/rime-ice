@@ -64,12 +64,14 @@ engine:
     - lua_translator@unicode # Unicode
     - lua_translator@number_translator # 数字、金额大写
   filters:
-    - simplifier@emoji # Emoji
-    - simplifier@traditionalize # 简繁切换
-    - uniquifier # 去重
-    - lua_filter@v_filter # v 模式 symbols 优先（否则是英文优先）
-    - lua_filter@reduce_english_filter # 降低部分英语单词在候选项的位置
-    - lua_filter@long_word_filter # 长词优先
+    - simplifier@emoji                    # Emoji
+    - simplifier@traditionalize           # 简繁切换
+    - lua_filter@autocap_filter           # 英文自动大写
+    - lua_filter@v_filter                 # v 模式 symbols 优先（否则是英文优先）
+    - lua_filter@reduce_english_filter    # 降低部分英语单词在候选项的位置
+    - lua_filter@long_word_filter         # 长词优先
+    - uniquifier                          # 去重
+
 
 # Lua 配置: 日期、时间、星期、ISO 8601、时间戳的触发关键字
 date_translator:
@@ -94,7 +96,7 @@ reduce_english_filter:
   idx: 5
   # 要降低的单词，匹配的是输入码，即全小写。
   # prettier-ignore
-  words: [nav, rug, bus, ship, laos, bail, bam, bans, bib, bos, chic, chit, dab, dag, dal, dit, dub, dug, fab, gam, ger, gus, hem, hep, hud, kat, lam, lax, lex, lug, lux, moc, mos, mot, mum, nad, nay, nib, nip, pak, pap, pax, rig, rum, sac, sal, sax, sec, shin, sis, ska, slang, sus, tad, taj, tac, tic, yep, yum, fax, cain, key, mob, buy, dam, wap, went, yes, but, put, lag, buf, lip, aid, aim, dig, dim, din, dip, pail]
+  words: [nav, rug, bus, ship, laos, bail, bam, bans, bib, bos, chic, chit, dab, dag, dal, dit, dub, dug, fab, gam, ger, gus, hem, hep, hud, kat, lam, lax, lex, lug, lux, moc, mos, mot, mum, nad, nay, nib, nip, pak, pap, pax, rig, rum, sac, sal, sax, sec, shin, sis, ska, slang, sus, tad, taj, tac, tic, yep, yum, fax, cain, key, mob, buy, dam, wap, went, yes, but, put, lag, buf, lip, aid, aim, dig, dim, din, dip, pail, cad, chap, bend]
 
 # 引入八股文
 grammar:
