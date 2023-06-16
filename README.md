@@ -12,6 +12,8 @@
 
 [常见问题](https://github.com/iDvel/rime-ice/issues/133)
 
+[更新日志](./others/CHANGELOG.md)
+
 <br>
 
 ## 基本套路
@@ -62,6 +64,8 @@
 
 建议备份原先配置，清空配置目录。
 
+⚠️ 单独使用词库注意事项，`rime_ice.dict.yaml` 下面包含了大写字母，这和配置有些许绑定，可以直接删除，详细说明：[#356](https://github.com/iDvel/rime-ice/issues/356)
+
 ### 手动安装
 
 将仓库所有文件复制粘贴进去就好了。
@@ -74,11 +78,13 @@
 
 感谢 [@Huandeep](https://github.com/Huandeep) 整理的多个词库。
 
+感谢 [@Mirtle](https://github.com/mirtlecn) 完善的多个功能。
+
 感谢所有贡献者。
 
 搜狗转 Rime：[lewangdev/scel2txt](https://github.com/lewangdev/scel2txt)
 
-大量参考[校对网](http://www.jiaodui.com/bbs/)。
+大量参考[校对标准论坛](http://www.jiaodui.com/bbs/)。
 
 Thanks to JetBrains for the OSS development license.
 

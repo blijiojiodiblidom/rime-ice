@@ -14,6 +14,7 @@ install_files: >-
   lua/cold_word_drop/*.*
   default.yaml
   squirrel.yaml
+  weasel_style.yaml
   rime_ice.schema.yaml
   rime_ice.dict.yaml
   symbols_v.yaml
