@@ -4,12 +4,22 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"script/rime"
 	"strings"
 )
 
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
+	if len(os.Args) > 1 {
+		if os.Args[1] == "sort" {
+			goto SORT
+		}
+		if os.Args[1] == "temp" {
+			rime.Pinyin(filepath.Join(rime.RimeDir, "cn_dicts/temp"))
+			return
+		}
+	}
 
 	// 临时
 	rime.Temp()
@@ -41,6 +51,7 @@ func main() {
 
 	areYouOK()
 
+SORT:
 	// 排序，顺便去重
 	rime.Sort(rime.HanziPath, 3)
 	rime.Sort(rime.BasePath, 3)

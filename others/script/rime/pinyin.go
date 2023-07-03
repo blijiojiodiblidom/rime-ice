@@ -31,6 +31,7 @@ var onlyOne = map[string]string{
 	"谁":  "shei",
 	"血":  "xue",
 	"熟":  "shu",
+	"露":  "lu",
 	"掴":  "guai",
 	"棽":  "shen",
 	"爪":  "zhua",
@@ -42,12 +43,16 @@ var onlyOne = map[string]string{
 	"公钥": "gong yao",
 	"私钥": "si yao",
 	"甲壳": "jia ke",
+	"掉色": "diao se",
+	"变色": "bian se",
+	"上色": "shang se",
 	// 其他多音字，指定唯一读音
 	"核儿": "he er",
 	"核":  "he",
 	"褪下": "tui xia",
 	"褪":  "tui",
 	"便便": "bian bian",
+	"便宜": "pian yi",
 	"便":  "bian",
 	"尿尿": "niao niao",
 	"尿":  "niao",
@@ -61,11 +66,14 @@ var onlyOne = map[string]string{
 	"呱":  "gua",
 	"咀":  "ju",
 	"大王": "da wang",
+	"大伯": "da bo",
+	"大":  "da",
 	"摩挲": "mo suo",
 	"摩":  "mo",
 	"澄清": "cheng qing",
 	"澄":  "cheng",
-	"大伯": "da bo",
+	"出车": "chu che",
+	"车":  "che",
 	"伯":  "bo",
 	"胖":  "pang",
 	"南":  "nan",
@@ -177,7 +185,6 @@ var onlyOne = map[string]string{
 	"喋":  "die",
 	"句":  "ju",
 	"杉":  "shan",
-	"车":  "che",
 	"臭":  "chou",
 	"禅":  "chan",
 	"埋":  "mai",
@@ -209,7 +216,6 @@ var onlyOne = map[string]string{
 	"术":  "shu",
 	"龟":  "gui",
 	"万":  "wan",
-	"大":  "da",
 	"没":  "mei",
 	"查":  "cha",
 	"省":  "sheng",
@@ -237,7 +243,7 @@ func init() {
 				continue
 			}
 			parts := strings.Split(line, "\t")
-			if len(parts) < 2 || !isAllLower(parts[1]) {
+			if len(parts) != 3 || !isAllLower(parts[1]) {
 				continue
 			}
 			text, code := parts[0], parts[1]
@@ -281,6 +287,9 @@ func Pinyin(dictPath string) {
 	// 遍历、注音
 	isMark := false
 	for i, line := range lines {
+		if strings.Contains(dictPath, "temp") {
+			isMark = true
+		}
 		if !isMark {
 			if strings.HasPrefix(line, mark) {
 				isMark = true
