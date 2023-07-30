@@ -9,6 +9,7 @@ user.yaml
 *.custom.yaml
 !squirrel.custom.yaml
 
+custom_phrase_double.txt
 others/script/scel2txt/out/*
 others/script/scel2txt/scel/*
 
