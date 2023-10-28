@@ -9,7 +9,7 @@
 schema:
   schema_id: melt_eng
   name: Easy English Nano
-  version: '2023-07-30'
+  version: '2023-10-17'
   author:
     - Patrick <ipatrickmac@gmail.com>
     - tumuyan <tumuyan@21cn.com>
@@ -157,3 +157,5 @@ algebra_rime_ice:
     - derive/7/qi/
     - derive/8/ba/
     - derive/9/jiu/
+    - derive/\+/jia/
+    - derive/#/jing/
