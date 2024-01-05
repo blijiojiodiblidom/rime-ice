@@ -126,7 +126,7 @@ liangfen:
 # 自定义短语：custom_phrase.txt
 custom_phrase:
   dictionary: ''
-  user_dict: custom_phrase
+  user_dict: custom_phrase_user
   db_class: stabledb
   enable_completion: false # 补全提示
   enable_sentence: false # 禁止造句
