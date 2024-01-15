@@ -58,6 +58,7 @@ engine:
     - punct_translator
     - script_translator
     - lua_translator@date_translator # 时间、日期、星期
+    - lua_translator@lunar # 农历
     - table_translator@custom_phrase # 自定义短语 custom_phrase.txt
     - table_translator@melt_eng # 英文输入
     - reverse_lookup_translator@liangfen # 反查，两分拼字
@@ -79,6 +80,14 @@ date_translator:
   week: xq # 星期： 星期二
   datetime: dt # ISO 8601： 2022-11-29T18:13:11+08:00
   timestamp: ts # 时间戳： 1669716794
+
+# Lua 配置：农历的触发关键字
+lunar: nl # 癸卯年（兔）冬月廿一  二〇二四年冬月廿一
+
+# Lua 配置：为 corrector 格式化 comment，占位符为 {comment}
+# 默认 "{comment}" 输入 hun dun 时会在「馄饨」旁边生成 hún tun 的 comment
+# 例如左右加个括号 "({comment})" 就会变成 (hún tun)
+corrector: '{comment}'
 
 # Lua 配置: 降低部分英语单词在候选项的位置。
 # 详细介绍 https://dvel.me/posts/make-rime-en-better/#短单词置顶的问题
@@ -163,8 +172,9 @@ recognizer:
   patterns: # 再增加方案专有的：
     punct: '^v([0-9]|10|[A-Za-z]+)$' # 响应 symbols_v.yaml 的 symbols，用 'v' 替换 '/'
     reverse_lookup: '^u[a-z]+$' # 响应两分拼字的反查
-    unicode: '^U[a-f0-9]+' # 响应 Unicode
-    number: '^R[0-9]+[.]?[0-9]*' # 响应 number_translator
+    unicode: '^U[a-f0-9]+' # 响应 lua_translator@unicode 脚本将自动获取第 2 个字符作为触发前缀
+    number: '^R[0-9]+[.]?[0-9]*' # 响应 lua_translator@number_translator 脚本将自动获取第 2 个字符作为触发前缀
+    gregorian_to_lunar: '^N[0-9]{1,8}' # 响应 lua_translator@lunar 公历转农历，输入 N20240115 得到「二〇二四年腊月初五」，脚本将自动获取第 2 个字符作为触发前缀
 
 # 从 default 继承快捷键
 key_binder:
