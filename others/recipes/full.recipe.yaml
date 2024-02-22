@@ -18,8 +18,9 @@ install_files: >-
   rime_ice.schema.yaml
   rime_ice.dict.yaml
   symbols_v.yaml
-  liangfen.schema.yaml
-  liangfen.dict.yaml
+  symbols_caps_v.yaml
+  radical_pinyin.schema.yaml
+  radical_pinyin.dict.yaml
   melt_eng.schema.yaml
   melt_eng.dict.yaml
   custom_phrase.txt
